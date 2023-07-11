@@ -15,9 +15,12 @@ class Car extends Model
         'type',
         'license',
         'price',
-        'status',
+        'ready',
         // 'image',
+    ];
 
+    protected $casts = [
+        'ready' => 'boolean',
     ];
 
     public function rental()

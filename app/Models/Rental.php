@@ -10,10 +10,15 @@ class Rental extends Model
     use HasFactory;
 
     protected $fillable = [
-        'car_id',
         'user_id',
+        'car_id',
         'start_date',
         'end_date',
+        'is_completed',
+    ];
+
+    protected $casts = [
+        'is_completed' => 'boolean'
     ];
 
     public function user()
