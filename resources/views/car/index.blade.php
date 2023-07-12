@@ -59,16 +59,24 @@
                             @forelse ($cars as $car)
                                 <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                        <a href="{{ route('car.edit', $car) }}" class="hover:underline">
-                                            {{ $car->name }}
-                                        </a>
-                                    </td>
+                                        {{ $car->name }}
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                        <p class="hover:underline">
                                             {{ $car->brand }}
-                                        </p>
                                     </td>
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                            {{ $car->type }}
+                                    </td>
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                            {{ $car->license }}
+                                    </td>
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+
+                                            {{ $car->price }}
+                                    </td>
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                            {{ $car->status }}
+                                    </td>
+                                    {{-- <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                         <p class="hover:underline">
                                             {{ $car->type }}
                                         </p>
@@ -87,26 +95,25 @@
                                         <p class="hover:underline">
                                             {{ $car->status }}
                                         </p>
-                                    </td>
+                                    </td> --}}
                                     <td class="px-6 py-4">
                                         <div class="flex space-x-3">
-                                            <form action="{{ route('category.destroy', $category) }}" method="Post">
-                                                @csrf
-                                                @method('patch')
-                                                <button type="submit" class="text-green-600 dark:text-green-400">
-                                                    <a href="{{ route('category.edit', $category) }}"
-                                                        class="hover:underline">
-                                                        Edit
-                                                    </a>
-                                                </button>
-                                                <form action="{{ route('category.destroy', $category) }}" method="Post">
+                                                <form action="{{ route('car.destroy', $car) }}" method="Post">
                                                     @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="text-red-600 dark:text-red-400" style="padding-left: 10px">
-                                                        Delete
+                                                    @method('patch')
+                                                    <button type="submit" class="text-green-600 dark:text-green-400">
+                                                        <a href="{{ route('car.edit', $car) }}">
+                                                            Edit
+                                                        </a>
                                                     </button>
+                                                    <form action="{{ route('car.destroy', $car) }}" method="Post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="text-red-600 dark:text-red-400" style="padding-left: 10px">
+                                                            Delete
+                                                        </button>
+                                                    </form>
                                                 </form>
-                                            </form>
                                         </div>
                                     </td>
 

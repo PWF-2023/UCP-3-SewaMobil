@@ -10,14 +10,16 @@ class CarController extends Controller
 {
     public function index()
     {
-        $cars = Car::with('rental');
+        $cars = Car::with('rental')->get();
         return view('car.index', compact('cars'));
     }
+
 
     public function create()
     {
         return view('car.create');
     }
+
 
     public function store(Request $request)
     {
@@ -42,14 +44,41 @@ class CarController extends Controller
         return redirect()->route('car.index')->with('success', 'Car created successfully!');
     }
 
+    // public function edit(Car $car)
+    // {
+    //     if (!auth()->check()) {
+    //         return redirect()->route('car.index')->with('error', 'You are not authorized to edit this car!');
+    //     }
+    //     if (auth()->user()->id == $car->user_id) {
+    //         return view('car.edit', compact('car'));
+    //     } else {
+    //         return redirect()->route('car.index')->with('error', 'You are not authorized to edit this car!');
+    //     }
+    // }
+
     public function edit(Car $car)
     {
-        if (auth()->user()->id == $car->user_id) {
+        // $cars = Car::where('user_id', auth()->user()->id)->get();
+        // (auth()->user()->id == $car->user_id) {
+            // dd($car);
             return view('car.edit', compact('car'));
-        } else {
-            return redirect()->route('car.index')->with('error', 'You are not authorized to edit this car!');
-        }
+        // } else {
+        //     // abort(403);
+        //     // abort(403, 'Not authorized');
+        //     return redirect()->route('car.index')->with('danger','You are not authorized to edit this car!');
+        // }
     }
+
+
+    // public function edit(Car $car)
+    // {
+    //     if (auth()->user()->id == $car->user_id) { // Menggunakan $car->user->id untuk membandingkan dengan user_id
+    //         return view('car.edit', compact('car'));
+    //     } else {
+    //         return redirect()->route('car.index')->with('error', 'You are not authorized to edit this car!');
+    //     }
+    // }
+
 
     public function update(Request $request, Car $car)
     {
@@ -58,7 +87,7 @@ class CarController extends Controller
             'brand' => 'required|max:255',
             'type' => 'required|max:255',
             'license' => 'required|max:255',
-            'price' => 'required|max:255',
+            'price' => 'required|numeric',
             // 'ready' => 'required|max:255',
         ]);
         $car->update([
@@ -75,12 +104,12 @@ class CarController extends Controller
 
     public function destroy(Car $car)
     {
-        if (auth()->user()->id == $car->user_id) {
-            $car->delete();
-            return redirect()->route('car.index')->with('success', 'Car deleted successfully!');
-        } else {
-            return redirect()->route('car.index')->with('error', 'You are not authorized to delete this car!');
-        }
+        // if (auth()->user()->id == $car->user_id) {
+        $car->delete();
+        return redirect()->route('car.index')->with('success', 'Car deleted successfully!');
+        // } else {
+        //     return redirect()->route('car.index')->with('error', 'You are not authorized to delete this car!');
+        // }
     }
 
     public function ready(Car $car)

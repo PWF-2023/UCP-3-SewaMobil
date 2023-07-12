@@ -20,28 +20,29 @@
                             <x-text-input id="name" name="name" type="text" class="block w-full mt-1"
                                 :value="old('name', $car->name)" required autofocus autocomplete="name" />
                             <x-input-error class="mt-2" :messages="$errors->get('name')" />
-                        </div><div class="mb-6">
+                        </div>
+                        <div class="mb-6">
                             <x-input-label for="brand" :value="__('Brand Mobil')" />
                             <x-text-input id="brand" name="brand" type="text" class="block w-full mt-1"
-                                :value="old('name', $car->brand)" required autofocus autocomplete="brand" />
+                                :value="old('brand', $car->brand)" required autofocus autocomplete="brand" />
                             <x-input-error class="mt-2" :messages="$errors->get('brand')" />
                         </div>
                         <div class="mb-6">
                             <x-input-label for="type" :value="__('Tipe Mobil')" />
                             <x-text-input id="type" name="type" type="text" class="block w-full mt-1"
-                                :value="old('name', $car->type)" required autofocus autocomplete="type" />
+                                :value="old('type', $car->type)" required autofocus autocomplete="type" />
                             <x-input-error class="mt-2" :messages="$errors->get('type')" />
                         </div>
                         <div class="mb-6">
                             <x-input-label for="license" :value="__('Plat Nomor')" />
                             <x-text-input id="license" name="license" type="text" class="block w-full mt-1"
-                                :value="old('name', $car->license)" required autofocus autocomplete="license" />
+                                :value="old('license', $car->license)" required autofocus autocomplete="license" />
                             <x-input-error class="mt-2" :messages="$errors->get('license')" />
                         </div>
                         <div class="mb-6">
                             <x-input-label for="price" :value="__('Harga')" />
                             <x-text-input id="price" name="price" type="text" class="block w-full mt-1"
-                                :value="old('name', $car->price)" required autofocus autocomplete="price" />
+                                :value="old('price', $car->price)" required autofocus autocomplete="price" />
                             <x-input-error class="mt-2" :messages="$errors->get('price')" />
                         </div>
                         <div class="flex items-center gap-4">
