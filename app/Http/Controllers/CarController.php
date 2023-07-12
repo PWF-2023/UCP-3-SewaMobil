@@ -27,7 +27,7 @@ class CarController extends Controller
             'type' => 'required|max:255',
             'license' => 'required|max:255',
             'price' => 'required|max:255',
-            'status' => 'required|max:255',
+            // 'ready' => 'required|max:255',
         ]);
         Car::create([
             // 'user_id' => auth()->user()->id,
@@ -36,7 +36,7 @@ class CarController extends Controller
             'type' => $request->type,
             'license' => $request->license,
             'price' => $request->price,
-            'status' => $request->status,
+            // 'ready' => $request->ready,
         ]);
 
         return redirect()->route('car.index')->with('success', 'Car created successfully!');
@@ -59,7 +59,7 @@ class CarController extends Controller
             'type' => 'required|max:255',
             'license' => 'required|max:255',
             'price' => 'required|max:255',
-            'status' => 'required|max:255',
+            // 'ready' => 'required|max:255',
         ]);
         $car->update([
             'name' => $request->name,
@@ -67,7 +67,7 @@ class CarController extends Controller
             'type' => $request->type,
             'license' => $request->license,
             'price' => $request->price,
-            'status' => $request->status,
+            // 'ready' => $request->ready,
         ]);
 
         return redirect()->route('car.index')->with('success', 'Car updated successfully!');

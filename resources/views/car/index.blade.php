@@ -11,7 +11,7 @@
                 <div class="p-6 text-xl text-gray-900 dark:text-gray-100">
                     <div class="flex items-center justify-between">
                         <div>
-                            <x-create-button href="{{ route('category.create') }}" />
+                            <x-create-button href="{{ route('car.create') }}" />
                         </div>
                         <div>
                             @if (session('success'))
@@ -59,7 +59,7 @@
                             @forelse ($cars as $car)
                                 <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                        <a href="{{ route('category.edit', $category) }}" class="hover:underline">
+                                        <a href="{{ route('car.edit', $car) }}" class="hover:underline">
                                             {{ $car->name }}
                                         </a>
                                     </td>
