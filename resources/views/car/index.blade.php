@@ -60,42 +60,26 @@
                                 <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                         {{ $car->name }}
-                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                            {{ $car->brand }}
                                     </td>
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                            {{ $car->type }}
+                                        {{ $car->brand }}
                                     </td>
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                            {{ $car->license }}
+                                        {{ $car->type }}
                                     </td>
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-
-                                            {{ $car->price }}
+                                        {{ $car->license }}
                                     </td>
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                            {{ $car->status }}
-                                    </td>
-                                    {{-- <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                        <p class="hover:underline">
-                                            {{ $car->type }}
-                                        </p>
+                                        {{ $car->price }}
                                     </td>
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                        <p class="hover:underline">
-                                            {{ $car->license }}
-                                        </p>
+                                        @if ($car->ready)
+                                            Ready
+                                        @else
+                                            Not Ready
+                                        @endif
                                     </td>
-                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                        <p class="hover:underline">
-                                            {{ $car->price }}
-                                        </p>
-                                    </td>
-                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                        <p class="hover:underline">
-                                            {{ $car->status }}
-                                        </p>
-                                    </td> --}}
                                     <td class="px-6 py-4">
                                         <div class="flex space-x-3">
                                                 <form action="{{ route('car.destroy', $car) }}" method="Post">
