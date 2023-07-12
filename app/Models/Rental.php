@@ -12,8 +12,8 @@ class Rental extends Model
     protected $fillable = [
         'user_id',
         'car_id',
-        'start_date',
-        'end_date',
+        'duration',
+        'total_price',
         'is_completed',
     ];
 
