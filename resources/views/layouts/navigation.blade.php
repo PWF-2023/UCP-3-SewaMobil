@@ -20,9 +20,9 @@
                     <x-nav-link :href="route('car.index')" :active="request()->routeIs('car.index')">
                         {{ __('Car') }}
                     </x-nav-link>
-                    {{-- <x-nav-link :href="route('user.index')" :active="request()->routeIs('car.index')">
+                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                         {{ __('User') }}
-                    </x-nav-link> --}}
+                    </x-nav-link>
                 </div>
             </div>
 

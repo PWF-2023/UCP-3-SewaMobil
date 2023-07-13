@@ -69,12 +69,12 @@
                                     <p>{{ $user->email }}</p>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <p>{{ $user->rental->count() }}
+                                    <p>{{ $user->rentals->count() }}
                                         <span>
                                             <span class="text-green-600 dark:text-green-400">({{
-                                                $user->rental->where('is_complete', true)->count() }}</span>/
+                                                $user->rentals->where('is_complete', true)->count() }}</span>/
                                             <span
-                                                class="text-blue-600 dark:text-blue-400">{{$user->rental->where('is_complete',
+                                                class="text-blue-600 dark:text-blue-400">{{$user->rentals->where('is_complete',
                                                 false)->count() }})</span>
                                         </span>
                                     </p>

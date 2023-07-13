@@ -53,6 +53,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/car/{car}', [CarController::class, 'update'])->name('car.update');
     Route::delete('/car/{car}', [CarController::class, 'destroy'])->name('car.destroy');
 
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+
 });
 
 require __DIR__.'/auth.php';
