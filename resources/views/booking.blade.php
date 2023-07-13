@@ -1,3 +1,7 @@
+@php
+$cars = App\Models\Car::all(); // Menggantikan 'App\Models\Car' dengan model Car yang sesuai di aplikasi
+@endphp
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -16,14 +20,25 @@
                     <div class="column3" style="column-gap: px">
                         <div class="divide-y divide-slate-200">
                             <div class="mb-4">
-                                <label for="category_id" class="font-semibold text-gray-800 dark:text-gray-200">Nama:</label>
-                                <x-select id="category_id" name="category_id" class="block w-full mt-1">
-                                    <option class="text-gray-800 dark:text-gray-200" value="">RX7</option>
+                                <label for="car_id" class="font-semibold text-gray-800 dark:text-gray-200">Nama:</label>
+                                <x-select id="car_id" name="car_id" class="block w-full mt-1">
+                                    <option class="text-gray-800 dark:text-gray-200" value="">Empty</option>
+                                    @foreach ($cars as $car)
+                                    <option value="{{ $car->id }}" {{ old('car_id')==$car->id ?
+                                        'selected' : '' }}>
+                                        {{ $car->name }}
+                                    </option>
+                                    @endforeach
                                 </x-select>
-                                <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
+                                <x-input-error class="mt-2" :messages="$errors->get('car_id')" />
                             </div>
                             <div class="mb-4">
-                                <span class="font-semibold text-gray-800 dark:text-gray-200">Brand:</span>
+                                <label for="car_id" class="font-semibold text-gray-800 dark:text-gray-200">Brand:</label>
+                                @foreach ($cars as $car)
+                                    @if (old('car_id') == $car->id)
+                                        <label class="font-semibold text-gray-800 dark:text-gray-200" value="">{{ $car->brand->name }}</label>
+                                    @endif
+                                @endforeach
                             </div>
                             <div class="mb-4">
                                 <span class="font-semibold text-gray-800 dark:text-gray-200">Type:</span>
@@ -32,11 +47,17 @@
                                 <span class="font-semibold text-gray-800 dark:text-gray-200">Harga/Hari:</span>
                             </div>
                             <div class="mb-4">
-                                <label for="category_id" class="font-semibold text-gray-800 dark:text-gray-200">License:</label>
-                                <x-select id="category_id" name="category_id" class="block w-full mt-1">
-                                    <option class="text-gray-800 dark:text-gray-200" value="">License</option>
+                                <label for="car_id" class="font-semibold text-gray-800 dark:text-gray-200">License:</label>
+                                <x-select id="car_id" name="car_id" class="block w-full mt-1">
+                                    <option class="text-gray-800 dark:text-gray-200" value="">Empty</option>
+                                    @foreach ($cars as $car)
+                                    <option value="{{ $car->id }}" {{ old('car_id')==$car->id ?
+                                        'selected' : '' }}>
+                                        {{ $car->license }}
+                                    </option>
+                                    @endforeach
                                 </x-select>
-                                <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
+                                <x-input-error class="mt-2" :messages="$errors->get('car_id')" />
                             </div>
                         </div>
                     </div>
