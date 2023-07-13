@@ -32,6 +32,18 @@ Route::middleware('auth')->group(function () {
     // Route::resource('/car', CarController::class);
 
     Route::get('/rental', [RentalController::class, 'index'])->name('rental.index');
+    Route::get('/rental', [RentalController::class, 'index'])->name('rental.index');
+    Route::get('/rental', [RentalController::class, 'index'])->name('rental.index');
+    Route::get('/rental', [RentalController::class, 'index'])->name('rental.index');
+
+    Route::get('/rental', [RentalController::class, 'index'])->name('rental.index');
+    Route::post('/rental', [RentalController::class, 'store'])->name('rental.store');
+    // Route::get('/todo/create', [TodoController::class, 'create'])->name('todo.create');
+    Route::patch('/rental/{rental}', [RentalController::class, 'update'])->name('rental.update');
+    Route::patch('/rental/{rental}/complete', [RentalController::class, 'complete'])->name('rental.complete');
+    Route::patch('/rental/{rental}/incomplete', [RentalController::class, 'uncomplete'])->name('rental.uncomplete');
+    Route::delete('/rental/{rental}', [RentalController::class, 'destroy'])->name('rental.destroy');
+    Route::delete('/rental', [RentalController::class, 'destroyCompleted'])->name('rental.deleteallcompleted');
 
 
     Route::get('/car', [CarController::class, 'index'])->name('car.index');
