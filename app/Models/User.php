@@ -43,7 +43,7 @@ class User extends Authenticatable
         'is_admin' => 'boolean',
     ];
 
-    public function rental()
+    public function rentals()
     {
         return $this->hasMany(Rental::class);
     }
