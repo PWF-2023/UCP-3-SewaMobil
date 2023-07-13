@@ -16,25 +16,25 @@
                     <div class="column3" style="column-gap: px">
                         <div class="divide-y divide-slate-200">
                             <div class="mb-4">
-                                <label for="category_id" class="font-semibold">Nama:</label>
+                                <label for="category_id" class="font-semibold text-gray-800 dark:text-gray-200">Nama:</label>
                                 <x-select id="category_id" name="category_id" class="block w-full mt-1">
-                                    <option value="">RX7</option>
+                                    <option class="text-gray-800 dark:text-gray-200" value="">RX7</option>
                                 </x-select>
                                 <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
                             </div>
                             <div class="mb-4">
-                                <span class="font-semibold">Brand:</span> Mazda
+                                <span class="font-semibold text-gray-800 dark:text-gray-200">Brand:</span>
                             </div>
                             <div class="mb-4">
-                                <span class="font-semibold">Type:</span> A
+                                <span class="font-semibold text-gray-800 dark:text-gray-200">Type:</span>
                             </div>
                             <div class="mb-4">
-                                <span class="font-semibold">Harga/Hari:</span> Rp500.000,00
+                                <span class="font-semibold text-gray-800 dark:text-gray-200">Harga/Hari:</span>
                             </div>
                             <div class="mb-4">
-                                <label for="category_id" class="font-semibold">License:</label>
+                                <label for="category_id" class="font-semibold text-gray-800 dark:text-gray-200">License:</label>
                                 <x-select id="category_id" name="category_id" class="block w-full mt-1">
-                                    <option value="">License</option>
+                                    <option class="text-gray-800 dark:text-gray-200" value="">License</option>
                                 </x-select>
                                 <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
                             </div>
@@ -43,7 +43,7 @@
                     <div class="column3" style="column-gap: px">
                         <div class="divide-y divide-slate-200">
                             <div class="mb-4">
-                                <label for="start_date" class="font-semibold">Start day:</label>
+                                <label for="start_date" class="font-semibold text-gray-800 dark:text-gray-200">Start day:</label>
                                 <div class="relative">
                                     <input type="text" id="start_date" name="start_date"
                                         class="border border-gray-300 px-3 py-2 rounded w-full focus:outline-none focus:border-blue-500"
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="mb-4">
-                                <label for="end_date" class="font-semibold">End day:</label>
+                                <label for="end_date" class="font-semibold text-gray-800 dark:text-gray-200">End day:</label>
                                 <div class="relative">
                                     <input type="text" id="end_date" name="end_date"
                                         class="border border-gray-300 px-3 py-2 rounded w-full focus:outline-none focus:border-blue-500"
@@ -73,10 +73,10 @@
                                 </div>
                             </div>
                             <div class="mb-4">
-                                <span class="font-semibold">Durasi Hari:  3</span> Hari
+                                <span class="font-semibold text-gray-800 dark:text-gray-200">Durasi Hari: </span>
                             </div>
                             <div class="mb-4">
-                                <span class="font-semibold">TotaL Price: Rp</span>
+                                <span class="font-semibold text-gray-800 dark:text-gray-200">TotaL Price: </span>
                             </div>
                         </div>
 
