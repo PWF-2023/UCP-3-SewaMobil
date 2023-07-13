@@ -31,6 +31,9 @@ Route::middleware('auth')->group(function () {
 
     // Route::resource('/car', CarController::class);
 
+    Route::get('/rental', [RentalController::class, 'index'])->name('rental.index');
+
+
     Route::get('/car', [CarController::class, 'index'])->name('car.index');
     Route::get('/car/create', [CarController::class, 'create'])->name('car.create');
     Route::post('/car', [CarController::class, 'store'])->name('car.store');
