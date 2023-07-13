@@ -43,6 +43,22 @@
                 <img src="{{ url('https://user-images.githubusercontent.com/96408724/253310070-297948eb-2a64-41f3-ac14-b05c221466bd.png') }}"
                     class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" style="width: 500px" />
             </div>
+
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <img class="w-full aspect-square" src="{{ url('https://www.cvtugurentcar.com/wp-content/uploads/2018/05/Ketahui-Jenis-Layanan-Rental-Mobil-Sebelum-Menyewa-Mobil-sumber-unsplash.jpeg') }}" alt="Deskripsi Gambar" style="width: 100vw;"><br>
+                </div>
+                <div>
+                    <h2 style="text-align: center; font-size: 36px; font-weight: bold; color: white;">Selamat Datang di Website Kami!</h2> <br>
+
+                    <div style="column-count: 2; text-align: justify; font-size: 16px; font-weight: ; color: white; font-family: figtree;">
+                        <p>Website sewa mobil kami, "SewaMobil", adalah solusi yang sempurna untuk menyewa mobil dengan mudah dan cepat. Kami menyediakan platform online yang nyaman dan handal untuk memenuhi kebutuhan mobilitas Anda. Dengan akses ke koleksi mobil yang luas dan beragam, SewaMobil memungkinkan Anda menemukan kendaraan yang sesuai dengan preferensi dan anggaran Anda. Apakah Anda mencari mobil keluarga yang luas, mobil mewah yang elegan, atau kendaraan kompak yang ekonomis, kami memiliki pilihan yang tepat untuk setiap keperluan perjalanan Anda. Sewa Mobil juga memperhatikan kemudahan dan keamanan dalam proses pemesanan. Melalui platform kami, Anda dapat dengan mudah memilih tanggal, waktu, dan durasi penyewaan yang sesuai dengan kebutuhan Anda. Dalam upaya kami untuk memberikan pengalaman yang terbaik, kami juga mengedepankan keandalan dan perawatan kendaraan. Semua mobil dalam koleksi kami menjalani perawatan berkala dan diperiksa secara menyeluruh sebelum disewakan kepada pelanggan kami.</p>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="mt-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                     <a class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
