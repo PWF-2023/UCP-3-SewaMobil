@@ -5,13 +5,13 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('booking') }}">
+                    <a href="{{ route('booking.index') }}">
                         <img src="{{ url('https://user-images.githubusercontent.com/96408724/253310093-8a7281dd-db0a-4f80-9e69-661e682bf3f7.png') }}" class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('booking')" :active="request()->routeIs('booking')">
+                    <x-nav-link :href="route('booking.index')" :active="request()->routeIs('booking')">
                         {{ __('Booking') }}
                     </x-nav-link>
                     <x-nav-link :href="route('rental.index')" :active="request()->routeIs('rental.index')">
@@ -75,7 +75,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('booking')" :active="request()->routeIs('booking')">
+            <x-responsive-nav-link :href="route('booking.index')" :active="request()->routeIs('booking')">
                 {{ __('Booking') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('car.index')" :active="request()->routeIs('car.index')">

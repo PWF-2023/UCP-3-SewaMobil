@@ -20,9 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/booking', function () {
-    return view('booking');
-})->middleware(['auth', 'verified'])->name('booking');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -53,9 +51,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/car/{car}', [CarController::class, 'update'])->name('car.update');
     Route::delete('/car/{car}', [CarController::class, 'destroy'])->name('car.destroy');
 
+    Route::get('/booking', [CarController::class, 'create'])->name('booking');
+    Route::get('/booking', function () {
+        return view('booking');
+    })->name('booking.index');
+    // Route::get('/booking', [RentalController::class, 'index'])->name('booking.index');
+
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
     Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
-
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
