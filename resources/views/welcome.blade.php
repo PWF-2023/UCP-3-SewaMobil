@@ -20,6 +20,7 @@
 <body class="antialiased">
     <div
         class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+
         @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
                 @auth
@@ -50,10 +51,11 @@
                     <img class="w-full aspect-square" src="{{ url('https://www.cvtugurentcar.com/wp-content/uploads/2018/05/Ketahui-Jenis-Layanan-Rental-Mobil-Sebelum-Menyewa-Mobil-sumber-unsplash.jpeg') }}" alt="Deskripsi Gambar" style="width: 100vw;"><br>
                 </div>
                 <div>
-                    <h2 style="text-align: center; font-size: 36px; font-weight: bold; color: white;">Selamat Datang di Website Kami!</h2> <br>
+                    <h2 class="text-center mt-6 text-xl font-semibold text-gray-900 dark:text-white">Selamat Datang di Website Kami!</h2> <br>
 
-                    <div style="column-count: 2; text-align: justify; font-size: 16px; font-weight: ; color: white; font-family: figtree;">
-                        <p>Website sewa mobil kami, "SewaMobil", adalah solusi yang sempurna untuk menyewa mobil dengan mudah dan cepat. Kami menyediakan platform online yang nyaman dan handal untuk memenuhi kebutuhan mobilitas Anda. Dengan akses ke koleksi mobil yang luas dan beragam, SewaMobil memungkinkan Anda menemukan kendaraan yang sesuai dengan preferensi dan anggaran Anda. Apakah Anda mencari mobil keluarga yang luas, mobil mewah yang elegan, atau kendaraan kompak yang ekonomis, kami memiliki pilihan yang tepat untuk setiap keperluan perjalanan Anda. Sewa Mobil juga memperhatikan kemudahan dan keamanan dalam proses pemesanan. Melalui platform kami, Anda dapat dengan mudah memilih tanggal, waktu, dan durasi penyewaan yang sesuai dengan kebutuhan Anda. Dalam upaya kami untuk memberikan pengalaman yang terbaik, kami juga mengedepankan keandalan dan perawatan kendaraan. Semua mobil dalam koleksi kami menjalani perawatan berkala dan diperiksa secara menyeluruh sebelum disewakan kepada pelanggan kami.</p>
+                    <div class="column-count: 2 text-align: justify font-size: 30px font-weight: color: text-gray-900 dark:text-white; font-family: figtree;">
+                        <p class="mt-4 font text-gray-900 dark:text-white text-sm leading-relaxed">
+                        Website sewa mobil kami, "SewaMobil", adalah solusi yang sempurna untuk menyewa mobil dengan mudah dan cepat. Kami menyediakan platform online yang nyaman dan handal untuk memenuhi kebutuhan mobilitas Anda. Dengan akses ke koleksi mobil yang luas dan beragam, SewaMobil memungkinkan Anda menemukan kendaraan yang sesuai dengan preferensi dan anggaran Anda. Apakah Anda mencari mobil keluarga yang luas, mobil mewah yang elegan, atau kendaraan kompak yang ekonomis, kami memiliki pilihan yang tepat untuk setiap keperluan perjalanan Anda. Sewa Mobil juga memperhatikan kemudahan dan keamanan dalam proses pemesanan. Melalui platform kami, Anda dapat dengan mudah memilih tanggal, waktu, dan durasi penyewaan yang sesuai dengan kebutuhan Anda. Dalam upaya kami untuk memberikan pengalaman yang terbaik, kami juga mengedepankan keandalan dan perawatan kendaraan. Semua mobil dalam koleksi kami menjalani perawatan berkala dan diperiksa secara menyeluruh sebelum disewakan kepada pelanggan kami.</p>
                     </div>
                 </div>
             </div>
@@ -80,7 +82,7 @@
                             <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Design User Friendly
                             </h2>
 
-                            <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                            <p class="mt-4 text-gray-900 dark:text-white text-sm leading-relaxed">
                                 Dengan desain website yang modern dan user-friendly, kami memastikan pengalaman
                                 pencarian dan pemesanan mobil Anda berjalan mulus. Dengan fitur pencarian canggih kami,
                                 Anda dapat dengan mudah menemukan mobil yang tepat sesuai dengan tanggal, waktu, dan
@@ -95,7 +97,7 @@
                             <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Peduli Anggaran Anda
                             </h2>
 
-                            <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                            <p class="mt-4 text-gray-900 dark:text-white text-sm leading-relaxed">
                                 Kami juga memperhatikan anggaran Anda. Oleh karena itu, kami menawarkan harga yang
                                 kompetitif dan transparan, serta berbagai paket penyewaan yang dapat disesuaikan dengan
                                 kebutuhan dan durasi perjalanan Anda. Tanpa biaya tersembunyi atau kejutan tak
@@ -109,7 +111,7 @@
                         <div>
                             <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Layanan Unggul</h2>
 
-                            <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                            <p class="mt-4 text-gray-900 dark:text-white text-sm leading-relaxed">
                                 Kami berkomitmen untuk memberikan layanan pelanggan yang unggul. Tim kami yang
                                 berpengalaman dan ramah siap membantu Anda melalui setiap tahap proses penyewaan, mulai
                                 dari pertanyaan prapesan hingga dukungan selama perjalanan. Dengan dukungan pelanggan
@@ -136,7 +138,7 @@
                     </div>
                 </div>
 
-                <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
+                <div class="ml-4 text-center text-sm text-gray-900 dark:text-white sm:text-right sm:ml-0">
                     Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                 </div>
             </div>
