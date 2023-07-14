@@ -83,10 +83,11 @@ $cars = App\Models\Car::all();
                                 </div>
                             </div>
                             <div class="mb-4">
-                                <span class="font-semibold text-gray-800 dark:text-gray-200">Durasi Hari: </span>
+                                <span class="font-semibold text-gray-800 dark:text-gray-200">Durasi Hari: <span id="durasi_hari"></span></span>
                             </div>
                             <div class="mb-4">
                                 <span class="font-semibold text-gray-800 dark:text-gray-200">Total Price: </span>
+                                <span class="font-semibold text-gray-800 dark:text-gray-200" id="total_price"></span>
                             </div>
                         </div>
 
@@ -162,7 +163,6 @@ $cars = App\Models\Car::all();
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
     <script>
         $(function() {
-
             $('#car_id').change(function() {
                 var car_id = $(this).val();
                 var car = @json($cars);
@@ -174,16 +174,37 @@ $cars = App\Models\Car::all();
                         $('#brand').text(selectedCar.brand);
                         $('#type').text(selectedCar.type);
                         $('#price').text(selectedCar.price);
+                        calculateTotalPrice();
                     }
                 }
             });
 
+            function calculateDuration() {
+                var startDate = $('#start_date').datepicker('getDate');
+                var endDate = $('#end_date').datepicker('getDate');
+                if (startDate && endDate) {
+                    var timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+                    var durationDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                    $('#durasi_hari').text(durationDays);
+                    calculateTotalPrice();
+                }
+            }
+
+            function calculateTotalPrice() {
+                var pricePerDay = parseFloat($('#price').text());
+                var durationDays = parseInt($('#durasi_hari').text());
+                if (!isNaN(pricePerDay) && !isNaN(durationDays)) {
+                    var totalPrice = pricePerDay * durationDays;
+                    $('#total_price').text(totalPrice.toFixed(2)); // Display the total price with two decimal places
+                }
+            }
 
             $("#start_date").datepicker({
                 dateFormat: "yy-mm-dd",
                 minDate: 0,
                 onSelect: function(selectedDate) {
                     $("#end_date").datepicker("option", "minDate", selectedDate);
+                    calculateDuration();
                 }
             });
 
@@ -192,6 +213,7 @@ $cars = App\Models\Car::all();
                 minDate: 0,
                 onSelect: function(selectedDate) {
                     $("#start_date").datepicker("option", "maxDate", selectedDate);
+                    calculateDuration();
                 }
             });
         });
