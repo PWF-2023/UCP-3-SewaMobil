@@ -73,7 +73,20 @@
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                         {{ $car->price }}
                                     </td>
-                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                    {{-- <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                        @if ($car->ready)
+                                            Ready
+                                        @else
+                                            Not Ready
+                                        @endif
+                                    </td> --}}
+                                    <td scope="row" class="px-6 py-4 font-medium
+                                        @if ($car->ready)
+                                            text-green-500
+                                        @else
+                                            text-blue-500
+                                        @endif
+                                        dark:text-white">
                                         @if ($car->ready)
                                             Ready
                                         @else

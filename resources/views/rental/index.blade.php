@@ -10,9 +10,9 @@
             <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                 <div class="p-6 text-xl text-gray-900 dark:text-gray-100">
                     <div class="flex items-center justify-between">
-                        <div>
+                        {{-- <div>
                             <x-create-button href="{{ route('rental.index') }}" />
-                        </div>
+                        </div> --}}
                         <div>
                             @if (session('success'))
                             <p x-data="{ show: true }" x-show="show" x-transition
@@ -84,7 +84,7 @@
                                     <div class="flex space-x-3">
                                         {{-- Action Here --}}
                                         @if ($rental->is_complete == false)
-                                        <form action="{{ route('rental.complete', $todo) }}" method="Post">
+                                        <form action="{{ route('rental.complete', $rental) }}" method="Post">
                                             @csrf
                                             @method('PATCH')
                                             <button type="submit" class="text-green-600 dark:text-green-400">
@@ -92,7 +92,7 @@
                                             </button>
                                         </form>
                                         @else
-                                        <form action="{{ route('rental.uncomplete', $todo) }}" method="Post">
+                                        <form action="{{ route('rental.uncomplete', $rental) }}" method="Post">
                                             @csrf
                                             @method('PATCH')
                                             <button type="submit" class="text-blue-600 dark:text-blue-400">
@@ -100,7 +100,7 @@
                                             </button>
                                         </form>
                                         @endif
-                                        <form action="{{ route('rental.destroy', $todo) }}" method="Post">
+                                        <form action="{{ route('rental.destroy', $rental) }}" method="Post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="text-red-600 dark:text-red-400">
