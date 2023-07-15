@@ -5,6 +5,7 @@ use App\Http\Controllers\CarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CreateCarClass;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/rental', [RentalController::class, 'destroyCompleted'])->name('rental.deleteallcompleted');
 
     Route::get('/car', [CarController::class, 'index'])->name('car.index');
-    Route::get('/car/create', [CarController::class, 'create'])->name('car.create');
+    // Route::get('/car/create', [CarController::class, 'create'])->name('car.create');
+    Route::get('/car/create', CreateCarClass::class)->name('car.create');
     Route::post('/car', [CarController::class, 'store'])->name('car.store');
     Route::get('/car/{car}/edit', [CarController::class, 'edit'])->name('car.edit');
     Route::patch('/car/{car}', [CarController::class, 'update'])->name('car.update');
