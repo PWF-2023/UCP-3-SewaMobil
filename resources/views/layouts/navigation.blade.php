@@ -44,9 +44,11 @@
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    @can('customer')
                     <x-nav-link :href="route('booking.index')" :active="request()->routeIs('booking')">
                         {{ __('Booking') }}
                     </x-nav-link>
+                    @endcan
                     @can('admin')
                     <x-nav-link :href="route('rental.index')" :active="request()->routeIs('rental.index')">
                         {{ __('Rental') }}
@@ -114,9 +116,11 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+            @can('customer')
             <x-responsive-nav-link :href="route('booking.index')" :active="request()->routeIs('booking')">
                 {{ __('Booking') }}
             </x-responsive-nav-link>
+            @endcan
             @can('admin')
             <x-responsive-nav-link :href="route('rental.index')" :active="request()->routeIs('rental.index')">
                 {{ __('Rental') }}
