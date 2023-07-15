@@ -58,20 +58,29 @@
                             <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                     @if ($rental->car)
+                                    {{ $rental->car->name }}
+                                    @endif
+                                </td>
+                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                    @if ($rental->car)
                                     {{ $rental->car->license }}
                                     @endif
                                 </td>
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                    Durasi Rental
+                                    @if ($rental->car)
+                                    {{ $rental->duration}} hari
+                                    @endif
                                 </td>
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                    Rp10000
+                                    @if ($rental->car)
+                                    {{ $rental->total_price}}
+                                    @endif
                                 </td>
                                 <td class="hidden px-6 py-4 md:block">
                                     @if ($rental->is_complete == false)
                                     <span
                                         class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
-                                        Ongoing
+                                    Ongoing
                                     </span>
                                     @else
                                     <span
