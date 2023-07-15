@@ -38,7 +38,7 @@ class RentalController extends Controller
             'is_completed' => $request->is_completed,
         ]);
 
-        return redirect()->route('rental.index')->with('success', 'Rental created successfully!');
+        return redirect()->route('booking.index')->with('success', 'Rental created successfully!');
     }
 
     public function update(Request $request, Rental $rental)

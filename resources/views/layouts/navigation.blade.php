@@ -47,15 +47,21 @@
                     <x-nav-link :href="route('booking.index')" :active="request()->routeIs('booking')">
                         {{ __('Booking') }}
                     </x-nav-link>
+                    @can('admin')
                     <x-nav-link :href="route('rental.index')" :active="request()->routeIs('rental.index')">
                         {{ __('Rental') }}
                     </x-nav-link>
+                    @endcan
+                    @can('admin')
                     <x-nav-link :href="route('car.index')" :active="request()->routeIs('car.index')">
                         {{ __('Car') }}
                     </x-nav-link>
+                    @endcan
+                    @can('admin')
                     <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                         {{ __('User') }}
                     </x-nav-link>
+                    @endcan
                 </div>
             </div>
 
@@ -111,9 +117,21 @@
             <x-responsive-nav-link :href="route('booking.index')" :active="request()->routeIs('booking')">
                 {{ __('Booking') }}
             </x-responsive-nav-link>
+            @can('admin')
+            <x-responsive-nav-link :href="route('rental.index')" :active="request()->routeIs('rental.index')">
+                {{ __('Rental') }}
+            </x-responsive-nav-link>
+            @endcan
+            @can('admin')
             <x-responsive-nav-link :href="route('car.index')" :active="request()->routeIs('car.index')">
                 {{ __('Car') }}
             </x-responsive-nav-link>
+            @endcan
+            @can('admin')
+            <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+                {{ __('User') }}
+            </x-responsive-nav-link>
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->
