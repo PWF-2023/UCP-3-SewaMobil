@@ -55,7 +55,9 @@
                             @forelse ($rentals as $rental)
                                 <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                        Nama User
+                                        @if ($rental->user)
+                                            {{ $rental->user->name }}
+                                        @endif
                                     </td>
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                         @if ($rental->car)

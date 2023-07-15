@@ -25,11 +25,6 @@ $is_completed = 0;
                         <div class="col-span-3 sm:col-span-1">
                             <div class="divide-y divide-slate-200">
                                 <div class="mb-4">
-                                    <x-input-label for="username" :value="__('Nama Anda')" />
-                                    <x-text-input id="username" name="username" type="text" class="block w-full mt-1" required autofocus autocomplete="username" :value="old('username')" />
-                                    <x-input-error class="mt-2" :messages="$errors->get('username')" />
-                                </div>
-                                <div class="mb-4">
                                     <label for="car_id" class="font-semibold text-gray-800 dark:text-gray-200">Nama Mobil:</label>
                                     <x-select id="car_id" name="car_id" class="block w-full mt-1">
                                         <option class="text-gray-800 dark:text-gray-200" value="">Empty</option>
