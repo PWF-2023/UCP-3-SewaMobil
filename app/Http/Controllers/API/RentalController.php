@@ -13,25 +13,25 @@ class RentalController extends Controller
      */
     public function index()
     {
-        //
-        // $search = request('search');
-        // if($search){
-        //     $rentals = Rental::with('car')
-        //         // ->where('user_id', auth()->user()->id)
-        //         ->where(function ($query) use ($search){
 
-        //             $query->where('', 'like', '%' . $search . '%');
-        //         })
-        //         ->latest()
-        //         ->get();
+        $search = request('search');
+        if($search){
+            $rentals = Rental::with('car')
+                // ->where('user_id', auth()->user()->id)
+                ->where(function ($query) use ($search){
 
-        //         return response()->json([
-        //             'status' => 'success',
-        //             'data' => [
-        //                 'rentals' => $rentals,
-        //                 ]
-        //         ],200);
-        // }
+                    $query->where('user_id', 'like', '%' . $search . '%');
+                })
+                ->latest()
+                ->get();
+
+                return response()->json([
+                    'status' => 'success',
+                    'data' => [
+                        'rentals' => $rentals,
+                        ]
+                ],200);
+        }
 
 
         $rentals = Rental::with('car')
