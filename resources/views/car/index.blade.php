@@ -73,18 +73,12 @@
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                         {{ $car->price }}
                                     </td>
-                                    {{-- <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                        @if ($car->ready)
-                                            Ready
-                                        @else
-                                            Not Ready
-                                        @endif
-                                    </td> --}}
+
                                     <td scope="row" class="px-6 py-4 font-medium
                                         @if ($car->ready)
-                                            text-green-500
+                                            text-green-500 dark:text-green-500
                                         @else
-                                            text-blue-500
+                                            text-blue-500 dark:text-blue-500
                                         @endif
                                         dark:text-white">
                                         @if ($car->ready)
@@ -93,6 +87,7 @@
                                             Not Ready
                                         @endif
                                     </td>
+
                                     <td class="px-6 py-4">
                                         <div class="flex space-x-3">
                                                 <form action="{{ route('car.destroy', $car) }}" method="Post">

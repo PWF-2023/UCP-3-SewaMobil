@@ -79,12 +79,12 @@ $is_completed = 0;
                                     </div>
                                 </div>
                                 <div class="mb-4">
-                                    <x-input-label for="name" :value="__('duration')" />
+                                    <x-input-label for="name" :value="__('Duration (Hari)')" />
                                     <x-text-input id="duration" name="duration" type="text" class="block w-full mt-1" required autofocus autocomplete="duration" :value="old('duration')" />
                                     <x-input-error class="mt-2" :messages="$errors->get('duration')" />
                                 </div>
                                 <div class="mb-4">
-                                    <x-input-label for="name" :value="__('total_price')" />
+                                    <x-input-label for="name" :value="__('Total Price')" />
                                     <x-text-input id="total_price" name="total_price" type="text" class="block w-full mt-1" required autofocus autocomplete="total_price" :value="old('total_price')" />
                                     <x-input-error class="mt-2" :messages="$errors->get('total_price')" />
                                 </div>
@@ -92,8 +92,8 @@ $is_completed = 0;
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
-                            <x-primary-button>{{ __('Save') }}</x-primary-button>
-                            <x-cancel-button href="{{ route('rental.index') }}" />
+                            <x-primary-button>{{ __('Rent') }}</x-primary-button>
+                            <x-cancel-button href="{{ route('booking.index') }}" />
                         </div>
                     </div>
             </div>

@@ -29,7 +29,7 @@ class RentalController extends Controller
             'total_price' => 'required|max:255',
             'is_completed' => 'required|max:255',
         ]);
-        
+
         Rental::create([
             'user_id' => auth()->user()->id,
             'car_id' => $request->car_id,
@@ -37,7 +37,7 @@ class RentalController extends Controller
             'total_price' => $request->total_price,
             'is_completed' => $request->is_completed,
         ]);
-        
+
         return redirect()->route('rental.index')->with('success', 'Rental created successfully!');
     }
 
@@ -65,11 +65,11 @@ class RentalController extends Controller
     {
         if (auth()->user()->id == $rental->user_id) {
             $rental->update([
-                'is_completed' => true,
+                'is_completed' => 1,
             ]);
-            return redirect()->route('rental.index')->with('success', 'Rent completed successfully!');
+            return redirect()->route('rental.index')->with('success', 'Rental completed successfully!');
         } else {
-            return redirect()->route('rental.index')->with('danger', 'You are not authorized to complete this todo!');
+            return redirect()->route('rental.index')->with('danger', 'You are not authorized to complete this rental!');
         }
     }
 
@@ -77,13 +77,16 @@ class RentalController extends Controller
     {
         if (auth()->user()->id == $rental->user_id) {
             $rental->update([
-                'is_completed' => false,
+                'is_completed' => 0,
             ]);
             return redirect()->route('rental.index')->with('success', 'Rental uncompleted successfully!');
         } else {
-            return redirect()->route('rental.index')->with('danger', 'You are not authorized to uncomplete this todo!');
+            return redirect()->route('rental.index')->with('danger', 'You are not authorized to uncomplete this rental!');
         }
     }
+
+
+
 
     public function destroy(Rental $rental)
     {
@@ -91,7 +94,7 @@ class RentalController extends Controller
             $rental->delete();
             return redirect()->route('rental.index')->with('success', 'Rental deleted successfully!');
         } else {
-            return redirect()->route('rental.index')->with('danger', 'You are not authorized to delete this todo!');
+            return redirect()->route('rental.index')->with('danger', 'You are not authorized to delete this rental!');
         }
     }
 
@@ -104,6 +107,6 @@ class RentalController extends Controller
             $rental->delete();
         }
 
-        return redirect()->route('rental.index')->with('success', 'All completed todos deleted successfully!');
+        return redirect()->route('rental.index')->with('success', 'All completed rentals deleted successfully!');
     }
 }
