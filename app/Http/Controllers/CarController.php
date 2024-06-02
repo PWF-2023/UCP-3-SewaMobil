@@ -26,9 +26,9 @@ class CarController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'brand' => 'required|max:255',
-            'type' => 'required|max:255',
-            'license' => 'required|max:255',
-            'price' => 'required|max:255',
+            'type' => 'required|string',
+            'license' => 'required',
+            'price' => 'required|integer',
             // 'ready' => 'required|max:255',
         ]);
         Car::create([

@@ -132,7 +132,7 @@
                         </tbody>
                     </table>
                 </div>
-                @if ($rentalsCompleted > 1)
+                {{-- @if ($rentalsCompleted > 1)
                     <div class="p-6 text-xl text-gray-900 dark:text-gray-100">
                         <form action="{{ route('rental.deleteallcompleted') }}" method="POST">
                             @csrf
@@ -142,7 +142,7 @@
                             </x-primary-button>
                         </form>
                     </div>
-                @endif
+                @endif --}}
             </div>
         </div>
     </div>

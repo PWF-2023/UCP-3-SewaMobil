@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Rental;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -25,8 +25,9 @@ class RentalController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'duration' => 'required|max:255',
-            'total_price' => 'required|max:255',
+            // 'car_id' => 'exists:cars',
+            'duration' => 'required|integer',
+            'total_price' => 'required|integer',
             'is_completed' => 'required|max:255',
         ]);
 
@@ -38,7 +39,7 @@ class RentalController extends Controller
             'is_completed' => $request->is_completed,
         ]);
 
-        return redirect()->route('booking.index')->with('success', 'Rental created successfully!');
+        return redirect()->route('booking.index')->with('success', 'Booking created successfully!');
     }
 
     public function update(Request $request, Rental $rental)
@@ -61,9 +62,9 @@ class RentalController extends Controller
         return redirect()->route('rental.index')->with('success', 'Rent updated successfully!');
     }
 
-    public function complete(Rental $rental)
+    public function complete(Rental $rental, User $users)
     {
-        if (auth()->user()->id == $rental->user_id) {
+        if (auth()->user()->id == $users->is_admin = true) {
             $rental->update([
                 'is_completed' => 1,
             ]);
@@ -73,9 +74,9 @@ class RentalController extends Controller
         }
     }
 
-    public function uncomplete(Rental $rental)
+    public function uncomplete(Rental $rental, User $users)
     {
-        if (auth()->user()->id == $rental->user_id) {
+        if (auth()->user()->id == $users->is_admin = true) {
             $rental->update([
                 'is_completed' => 0,
             ]);
@@ -88,9 +89,9 @@ class RentalController extends Controller
 
 
 
-    public function destroy(Rental $rental)
+    public function destroy(Rental $rental, User $users)
     {
-        if (auth()->user()->id == $rental->user_id) {
+        if (auth()->user()->id == $users->is_admin = true) {
             $rental->delete();
             return redirect()->route('rental.index')->with('success', 'Rental deleted successfully!');
         } else {

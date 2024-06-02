@@ -14,14 +14,29 @@ $is_completed = 0;
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="mb-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="flex items-center justify-between">
+                        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                            @if (session('success'))
+                                <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)"
+                                    class="text-sm text-green-600 dark:text-green-400">{{ session('success') }}
+                                </p>
+                            @endif
+                            @if (session('danger'))
+                                <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)"
+                                    class="text-sm text-red-600 dark:text-red-400">{{ session('danger') }}
+                                </p>
+                            @endif
+                        </div>
+                    </div>
                 <form method="post" action="{{ route('rental.store') }}" class="">
                     @csrf
                     <div class="grid grid-cols-3 gap-4 p-6">
-                        <div class="col-span-3 sm:col-span-1">
+                        {{-- <div class="col-span-3 sm:col-span-1">
                             <img src="https://media.carsandbids.com/cdn-cgi/image/width=2080,quality=70/7a0a3c6148108c9c64425dd85e0181fa3cccb652/photos/KDEXwwVp.fAM5GswIi-(edit).jpg?t=162654816554" alt="Car Image" class="w-full">
-                        </div>
+                        </div> --}}
                         <div class="col-span-3 sm:col-span-1">
                             <div class="divide-y divide-slate-200">
                                 <div class="mb-4">
@@ -80,18 +95,18 @@ $is_completed = 0;
                                 </div>
                                 <div class="mb-4">
                                     <x-input-label for="name" :value="__('Duration (Hari)')" />
-                                    <x-text-input id="duration" name="duration" type="text" class="block w-full mt-1" required autofocus autocomplete="duration" :value="old('duration')" />
+                                    <x-text-input id="duration" name="duration" type="text" class="block w-full mt-1" required autofocus autocomplete="duration" :value="old('duration')" readonly/>
                                     <x-input-error class="mt-2" :messages="$errors->get('duration')" />
                                 </div>
                                 <div class="mb-4">
                                     <x-input-label for="name" :value="__('Total Price')" />
-                                    <x-text-input id="total_price" name="total_price" type="text" class="block w-full mt-1" required autofocus autocomplete="total_price" :value="old('total_price')" />
+                                    <x-text-input id="total_price" name="total_price" type="text" class="block w-full mt-1" required autofocus autocomplete="total_price" :value="old('total_price')" readonly />
                                     <x-input-error class="mt-2" :messages="$errors->get('total_price')" />
                                 </div>
                                     <input id="is_completed" name="is_completed" type="hidden" value="{{ old('is_completed', $is_completed) }}">
                             </div>
                         </div>
-                        <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-4 pl-10">
                             <x-primary-button>{{ __('Rent') }}</x-primary-button>
                             <x-cancel-button href="{{ route('booking.index') }}" />
                         </div>
@@ -198,7 +213,9 @@ $is_completed = 0;
                 var pricePerDay = parseFloat($('#price').text());
                 if (!isNaN(pricePerDay) && !isNaN(durationDays)) {
                     var totalPrice = pricePerDay * durationDays;
-                    $('#total_price').val(totalPrice.toFixed(2)); // Update the total_price input field with the total price
+                    var totalInt = parseInt(totalPrice);
+                    $('#total_price').val(totalInt);
+                    // Update the total_price input field with the total price
                 }
             }
 
